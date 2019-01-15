@@ -58,21 +58,26 @@ class RenderTrack extends Component {
         })
     })
     }
+
+    deleteFunction(){
+
+    }
+
     render(){
         return(
     
             <div className="modal">
             <h1>Render Track page</h1>
-            <form onSubmit>
+            {/* <form onSubmit={this.handleSubmit.bind(this)}>
                 <label>Name: </label><input type="text" name="name" onChange={this.handelChange.bind(this)}/><br/>
                 <label>Email: </label><input type="email" name="email" onChange={this.handelChange.bind(this)}/><br/>
                 <label>Phone: </label><input type="number" name="phone" onChange={this.handelChange.bind(this)}/><br/>
                 <label>Location: </label><input type="text" name="location" onChange={this.handelChange.bind(this)}/><br/>
                 <button>Edit</button>
             </form>
-        
+         */}
              <div>
-             <button onClick> Delete</button>
+             <button onClick={this.deleteFunction()}> Delete</button>
              </div>
 
              {/* <TrackInfo/> */}

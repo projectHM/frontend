@@ -6,6 +6,7 @@ import './App.css';
 import Main from './components/Main';
 import CostCalcuate from './components/CostCalculate';
 import MakeRequest from './components/MakeRequest';
+import TrackInfo from './components/TrackInfo';
 
 class App extends Component {
   constructor(){
@@ -64,7 +65,13 @@ class App extends Component {
             <Track setActivePage={this.setActivePage.bind(this)}/>
           </div>
         )
-    }
+    } else if (this.state.activePage === 'trackInfo') {
+      return (
+        <div>
+          <TrackInfo setActivePage={this.setActivePage.bind(this)}/>
+        </div>
+      )
+  }
    }
   
    render() {
