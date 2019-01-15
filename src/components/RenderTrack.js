@@ -23,7 +23,7 @@ class RenderTrack extends Component {
             console.log(this.state);
         })
     }
-    
+
     handleSubmit(data) {
         data.preventDefault();
         const request = this.state.req;
@@ -41,7 +41,6 @@ class RenderTrack extends Component {
           },
           body: JSON.stringify(data)
         })
-
         .then(response => response.json())
         .then(data => {
     
@@ -61,8 +60,7 @@ class RenderTrack extends Component {
     }
     render(){
         return(
-        
-            
+    
             <div className="modal">
             <h1>Render Track page</h1>
             <form onSubmit>

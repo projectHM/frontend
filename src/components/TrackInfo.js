@@ -13,7 +13,6 @@ class TrackInfo extends Component{
         
     }
     }
-
     componentDidMount(){
         console.log('fetching data');
         fetch('http://localhost:3000/')
