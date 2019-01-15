@@ -21,7 +21,25 @@ class Track extends Component{
         <TrackInfo />
           </div>
         )
-        }
+    }
+
+    handelSubmit(event){
+        event.preventDefault();
+        const url = '';
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                this.setTrackActivePage('track')
+            })
+            .catch(error => console.log(error))
+    }
+
+    setTrackActivePage(activePage) {
+        this.setState( {
+            activePage: activePage
+        })
+    }
 
         handleChange(event){
             // console.log({[event.target.email]:event.target.value});
@@ -56,10 +74,16 @@ class Track extends Component{
     return(
 
      <div className="modal">
+     {/* <form onSubmit={this.handelSubmit.bind(this)}>
+   
+     <label>Email: </label><input type="email" name="email" /><br/>
+    */}
      <form onSubmit={this.handleSubmit.bind(this)}>
      <label>Email: </label><input type="email" name="email" onChange={this.handleChange.bind(this)}/><br/>
      <button>Supmit</button>
      </form>
+
+     {/* {this.rendeRenderTrack()} */}
      {this.rendeRenderTrack()}
      </div>
       ) 
