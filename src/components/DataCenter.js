@@ -11,7 +11,6 @@ class DataCenter extends Component {
             switch: ''
         }
     }
-
     handelChange(event){
         const currentInput = event.target.name;
         const newValue = event.target.value;

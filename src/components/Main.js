@@ -8,7 +8,6 @@ class Main extends Component {
             
         }
     }
-
     renderCostCalcuate(){
         console.log('render');
         return (
@@ -17,7 +16,6 @@ class Main extends Component {
             </div>
         )
     }
-
     render(){
         return (
             <div>

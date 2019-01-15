@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Track from './components/Track';
-import TrackInfo from './components/TrackInfo';
+// import TrackInfo from './components/TrackInfo';
 
 import './App.css';
 import Main from './components/Main';
@@ -11,7 +11,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      activePage: 'app'
+    activePage: 'app'
     }
   }
   renderTrack(){
@@ -19,6 +19,7 @@ class App extends Component {
     return (
         <div>
             <Track/>
+            
         </div>
     )
 }
@@ -64,9 +65,9 @@ class App extends Component {
           </div>
         )
     }
-  }
+   }
   
-  render() {
+   render() {
     return (
       <div className="app">
         <div>
