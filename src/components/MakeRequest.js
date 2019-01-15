@@ -33,7 +33,7 @@ class MakeRequest extends Component {
             phone: this.state.phone,
             location: this.state.location
         }
-        const url = 'http://localhost:3000/*******';
+        const url = 'http://localhost:3000/cd/clients';
         fetch(url, {
             method: 'POST',
             headers: {

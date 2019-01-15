@@ -15,7 +15,7 @@ class TrackInfo extends Component{
     }
     componentDidMount(){
         console.log('fetching data');
-        fetch('http://localhost:3000/')
+        fetch('http://localhost:3000/cd/requests')
         .then( response => response.json())
         .then( data => {
          console.log(data);
@@ -78,21 +78,27 @@ class TrackInfo extends Component{
 
      }
 
+     handelSubmit(event){
+
+     }
+
      renderRequest(allRequest) {
         return allRequest.map((req) => {
           return (
-            <RenderTrack key={req.id}
+            <RenderTrack 
+              key={req.id}
               req={req}
             />
           )
         })
       }
+
     renderTrack(){
         console.log('render track');
         return (
           <div> 
               <h1>Track Info page</h1>
-              <form onSubmit>
+              <form onSubmit={this.handelSubmit.bind(this)}>
                 <label>Name: </label><input type="text" name="name" onChange={this.handelChange.bind(this)}/><br/>
                 <label>Email: </label><input type="email" name="email" onChange={this.handelChange.bind(this)}/><br/>
                 <label>Phone: </label><input type="number" name="phone" onChange={this.handelChange.bind(this)}/><br/>
@@ -100,10 +106,10 @@ class TrackInfo extends Component{
                 <button>Edit</button>
             </form>
             <div>
-                <RenderTrack req={this.state.req} 
+                {/* <RenderTrack req={this.state.req} 
                 deleteRequest={this.deleteRequest.bind(this)}
                 update={this.update.bind(this)}
-                />
+                /> */}
             </div>
             </div>
         )
