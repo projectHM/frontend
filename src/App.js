@@ -14,6 +14,14 @@ class App extends Component {
       activePage: 'app'
     }
   }
+  renderTrack(){
+    console.log('render track');
+    return (
+        <div>
+            <Track/>
+        </div>
+    )
+}
 
   setActivePage(activePage){
     this.setState({
@@ -66,6 +74,7 @@ class App extends Component {
             C&D
           </header>
           <button>Track</button>
+          {this.renderTrack()}
         </div>
         <div>
         {/* {this.renderPage()} */}
