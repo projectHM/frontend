@@ -4,13 +4,17 @@ import RenderTrack from './RenderTrack';
 class TrackInfo extends Component{
   constructor(){
         super();
-    state={
+    this.state={
         req:[],
-        modal:false
+        name: '',
+        email: '',
+        phone: '',
+        location: ''
+        
     }
     }
+
     componentDidMount(){
-       
         console.log('fetching data');
         fetch('http://localhost:3000/')
         .then( response => response.json())
@@ -24,7 +28,7 @@ class TrackInfo extends Component{
             console.log(error)
           })
       }
-    
+
     update(data) {
         const url = `http://localhost:3000/`
         fetch(url, {
@@ -34,6 +38,7 @@ class TrackInfo extends Component{
           },
           body: JSON.stringify(data)
         })
+
         .then(response => response.json())
         .then(data => {
     
@@ -44,12 +49,14 @@ class TrackInfo extends Component{
           console.log('new state: ', update)
     
           this.setState({
-          
+          req: data
         })
         .catch(error => {
           console.log(error);
         })
     })}
+
+
     deleteRequest(id) {
         const url = `http://localhost:3000/`;
         fetch(url, {
@@ -59,7 +66,7 @@ class TrackInfo extends Component{
           .then(data => {
             //const delete 
             this.setState({
-             
+                req: data
 
             })
           })
@@ -67,21 +74,46 @@ class TrackInfo extends Component{
             console.log(error);
           })
       }
-    
-      toggleModal(){
-        this.setState({
-          modal: !this.state.modal
+
+     handelChange(event){
+
+     }
+
+     renderRequest(allRequest) {
+        return allRequest.map((req) => {
+          return (
+            <RenderTrack key={req.id}
+              req={req}
+            />
+          )
         })
       }
-    
     renderTrack(){
         console.log('render track');
         return (
+          <div> 
+              <h1>Track Info page</h1>
+              <form onSubmit>
+                <label>Name: </label><input type="text" name="name" onChange={this.handelChange.bind(this)}/><br/>
+                <label>Email: </label><input type="email" name="email" onChange={this.handelChange.bind(this)}/><br/>
+                <label>Phone: </label><input type="number" name="phone" onChange={this.handelChange.bind(this)}/><br/>
+                <label>Location: </label><input type="text" name="location" onChange={this.handelChange.bind(this)}/><br/>
+                <button>Edit</button>
+            </form>
             <div>
                 <RenderTrack req={this.state.req} 
                 deleteRequest={this.deleteRequest.bind(this)}
-                toggleModal={this.toggleModal.bind(this)}
+                update={this.update.bind(this)}
                 />
+            </div>
+            </div>
+        )
+    }
+    render(){
+        return (
+            <div>
+                {this.renderTrack()}
+                {this.renderRequest(this.state.req)}
             </div>
         )
     }
