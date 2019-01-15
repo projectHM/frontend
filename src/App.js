@@ -73,8 +73,8 @@ class App extends Component {
           <header>
             C&D
           </header>
-          <button>Track</button>
-          {this.renderTrack()}
+          <button onClick={() => this.setActivePage('track')}>Track</button>
+          {/* {this.renderTrack()} */}
         </div>
         <div>
         {/* {this.renderPage()} */}

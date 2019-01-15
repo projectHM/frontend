@@ -21,20 +21,38 @@ class Track extends Component{
                 <TrackInfo />
             </div>
         )
-        }
+    }
+
+    handelSubmit(event){
+        event.preventDefault();
+        const url = '';
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                this.setTrackActivePage('track')
+            })
+            .catch(error => console.log(error))
+    }
+
+    setTrackActivePage(activePage) {
+        this.setState( {
+            activePage: activePage
+        })
+    }
 
     render() {
     return(
 
      <div className="modal">
-     <form >
+     <form onSubmit={this.handelSubmit.bind(this)}>
    
      <label>Email: </label><input type="email" name="email" /><br/>
    
      <button>Supmit</button>
      </form>
 
-     {this.rendeRenderTrack()}
+     {/* {this.rendeRenderTrack()} */}
      </div>
  
 
