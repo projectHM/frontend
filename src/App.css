@@ -1,4 +1,4 @@
-/* .firstPage{
+.firstPage{
     margin: 0;
     position: absolute;
     top: 60%;
@@ -26,7 +26,7 @@
 }
 
 .dataCenter{
-    margin: 5% auto;
+    margin: 9% auto;
     background: rgba(242, 242, 242, 0.65);
     display: flex;
     flex-flow: column;
@@ -34,9 +34,50 @@
     text-align: center;
     max-width: 97%;
     height: 90%;
-    padding: 3% 0px;
+    width: 90%;
+    padding: 7% 30px;
+    left: 50px;
 }
 
-.dataCenter{
+.dataCenter form {
+    text-align: center;
+    padding-left: 15px;
+}
 
-} */
+.cloud{
+    margin: 9% auto;
+    background: rgba(242, 242, 242, 0.65);
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    text-align: center;
+    max-width: 97%;
+    height: 90%;
+    width: 90%;
+    padding: 7% 30px;
+}
+
+.trackEmail{
+    margin: 9% auto;
+    background: rgba(155, 152, 152, 0.65);
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    text-align: center;
+    max-width: 97%;
+    height: 90%;
+    width: 90%;
+    padding: 7% 30px;
+    left: 50px;
+}
+
+.trackEmail button {
+   background-color: #80b3ff;
+}
+.box {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(155, 152, 152, 0.65);
+}
+
+

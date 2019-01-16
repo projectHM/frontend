@@ -3,7 +3,7 @@ import RenderTrack from './RenderTrack';
 
 class TrackInfo extends Component{
   constructor(){
-        super();
+    super();
     this.state={
         req:[],
         name: '',
@@ -91,6 +91,15 @@ class TrackInfo extends Component{
         //       key={index}
         //       req={req}
         //       setCurrentReq={this.setCurrentReq.bind(this)}
+
+     }
+
+     renderRequest(allRequest) {
+        // return allRequest.map((req) => {
+        //   return (
+        //     <RenderTrack 
+        //       key={req.id}
+        //       req={req}
         //     />
         //   )
         // })
@@ -98,14 +107,15 @@ class TrackInfo extends Component{
 
     renderTrack(){
         console.log('render track');
+        // console.log(this.props.);
         return (
-          <div> 
+          <div className="trackEmail"> 
               <h1>Track Info page</h1>
               <form onSubmit={this.handelSubmit.bind(this)}>
-                <label>Name: </label><input type="text" name="name" onChange={this.handelChange.bind(this)}/><br/>
-                <label>Email: </label><input type="email" name="email" onChange={this.handelChange.bind(this)}/><br/>
-                <label>Phone: </label><input type="number" name="phone" onChange={this.handelChange.bind(this)}/><br/>
-                <label>Location: </label><input type="text" name="location" onChange={this.handelChange.bind(this)}/><br/>
+                <label>Name: </label><input type="text" name="name" onChange={this.handelChange.bind(this)} value={this.props.clientInfo.clinets.name}/><br/>
+                <label>Email: </label><input type="email" name="email" onChange={this.handelChange.bind(this)} value={this.props.clientInfo.clinets.email}/><br/>
+                <label>Phone: </label><input type="number" name="phone" onChange={this.handelChange.bind(this)} value={this.props.clientInfo.clinets.phone}/><br/>
+                <label>Location: </label><input type="text" name="location" onChange={this.handelChange.bind(this)} value={this.props.clientInfo.clinets.location}/><br/>
                 <button>Edit</button>
             </form>
             <div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Track from './components/Track';
-
+import { Button} from 'react-bootstrap';
 // import TrackInfo from './components/TrackInfo';
 
 import './App.css';
@@ -8,6 +8,7 @@ import Main from './components/Main';
 import CostCalcuate from './components/CostCalculate';
 import MakeRequest from './components/MakeRequest';
 import TrackInfo from './components/TrackInfo';
+import ReqDone from './components/ReqDone';
 
 class App extends Component {
   constructor(){
@@ -72,6 +73,12 @@ class App extends Component {
           <TrackInfo setActivePage={this.setActivePage.bind(this)}/>
         </div>
       )
+    } else if (this.state.activePage === 'ReqDone') {
+      return (
+        <div>
+          <ReqDone setActivePage={this.setActivePage.bind(this)}/>
+        </div>
+      )
   }
    }
   
@@ -82,7 +89,7 @@ class App extends Component {
           <header className="header">
             C&D
          
-          <button className="track" bsStyle="primary" onClick={() => this.setActivePage('track')}>Track</button>
+          <Button className="track" bsStyle="primary" onClick={() => this.setActivePage('track')}>Track</Button>
           {/* {this.renderTrack()} */}
           </header>
         </div>

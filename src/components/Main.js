@@ -17,6 +17,7 @@ class Main extends Component {
             </div>
         )
     }
+    
     render(){
         return (
             <div className="firstPage">
@@ -26,8 +27,7 @@ class Main extends Component {
                 {/* {this.renderCostCalcuate()} */}
                 {/* <CostCalcuate/> */}
 
-            </div>
-           
+            </div>  
         )
     }
 }

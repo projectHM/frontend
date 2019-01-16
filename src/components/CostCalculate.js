@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import MakeRequest from './MakeRequest';
 import DataCenter from './DataCenter';
 import Cloud from './Cloud';
 
 class CostCalcuate extends Component {
-    constructor(){
+    constructor() {
         super();
-        this.state ={
+        this.state = {
             cpu: '',
             ram: '',
             disk: '',
@@ -15,7 +15,7 @@ class CostCalcuate extends Component {
         }
     }
 
-    setReq(req){
+    setReq(req) {
         this.setState({
             cpu: req.cpu,
             ram: req.ram,
@@ -25,7 +25,7 @@ class CostCalcuate extends Component {
         })
     }
 
-    handelSubmit(event){
+    handelSubmit(event) {
         // event
         event.preventDefault();
         // this.setState({
@@ -36,22 +36,24 @@ class CostCalcuate extends Component {
         //     switch: req.switch
         // })
     }
-    
 
-    render(){
-        return(
-            <div className="App">
+
+    render() {
+        return (
+            <div>
                 <p>cost calculate</p>
-                <div>
+                <div className="box">
+                    <div>
+                        <DataCenter setReq={this.setReq.bind(this)} setActivePage={this.props.setActivePage.bind(this)} />
+                        <form onSubmit={this.handelSubmit.bind(this)}>
+                            {/* <button>Make Request</button> */}
+                        </form>
+                    </div>
+                    <div>
+                        <Cloud />
+                    </div>
+                </div>
 
-                <DataCenter setReq={this.setReq.bind(this)} setActivePage={this.props.setActivePage.bind(this)}/>
-                <form onSubmit={this.handelSubmit.bind(this)}>
-                    {/* <button>Make Request</button> */}
-                </form>
-                </div>
-                <div>
-                <Cloud/>
-                </div>
 
                 {/* <button>Make Req</button> */}
                 {/* <MakeRequest req={this.state}/> */}
