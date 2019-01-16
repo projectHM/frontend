@@ -43,7 +43,7 @@ class DataCenter extends Component {
 
     render(){
         return(
-            <div>
+            <div className="dataCenter">
                 <h1>Data Center</h1>
                 <div>
                     <form onSubmit={this.handelSubmit.bind(this)}>

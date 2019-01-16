@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Track from './components/Track';
+import { Button} from 'react-bootstrap';
 // import TrackInfo from './components/TrackInfo';
 
 import './App.css';
@@ -85,11 +86,12 @@ class App extends Component {
     return (
       <div className="app">
         <div>
-          <header>
+          <header className="header">
             C&D
-          </header>
-          <button onClick={() => this.setActivePage('track')}>Track</button>
+         
+          <Button className="track" bsStyle="primary" onClick={() => this.setActivePage('track')}>Track</Button>
           {/* {this.renderTrack()} */}
+          </header>
         </div>
         <div>
         {/* {this.renderPage()} */}

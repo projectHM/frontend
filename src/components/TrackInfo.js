@@ -59,15 +59,29 @@ class TrackInfo extends Component{
 
 
     deleteRequest(id) {
-        // const url = `http://localhost:3000/`;
-        // fetch(url, {
-        //     method: 'DELETE'
-        //   })
-        //   .then(response => response.json())
-        //   .then(data => {
-        //     //const delete 
-        //     this.setState({
-        //         req: data
+        const url = `http://localhost:3000/`;
+        fetch(url, {
+            method: 'DELETE'
+          })
+          .then(response => response.json())
+          .then(data => {
+            //const delete 
+            this.setState({
+                req: data
+            })
+          })
+          .catch(error => {
+            console.log(error);
+          })
+    } 
+     
+     renderRequest() {
+        // return this.state.req.map((req,index) => {
+        //   return (
+        //     <RenderTrack 
+        //       key={index}
+        //       req={req}
+        //       setCurrentReq={this.setCurrentReq.bind(this)}
 
         //     })
         //   })
@@ -108,7 +122,7 @@ class TrackInfo extends Component{
         console.log('render track');
         // console.log(this.props.);
         return (
-          <div> 
+          <div className="trackEmail"> 
               <h1>Track Info page</h1>
               <form onSubmit={this.handelSubmit.bind(this)}>
                 <label>Name: </label><input type="text" name="name" onChange={this.handelChange.bind(this)} value={this.state.name}/><br/>
@@ -123,6 +137,7 @@ class TrackInfo extends Component{
                 deleteRequest={this.deleteRequest.bind(this)}
                 update={this.update.bind(this)}
                 /> */}
+
             </div>
             
           </div>
@@ -136,6 +151,5 @@ class TrackInfo extends Component{
             </div>
         )
     }
-
-}
+  }
 export default TrackInfo;
