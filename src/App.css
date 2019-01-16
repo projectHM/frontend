@@ -2,6 +2,12 @@
     margin: 0;
     position: absolute;
     top: 60%;
+<<<<<<< HEAD
+    left: 50%;
+
+    
+}
+=======
     left: 49%;
 }
 .header{
@@ -81,3 +87,4 @@
 }
 
 
+>>>>>>> e5fe131f7ed54c2e59a8ca8b66dd8645547bb9d8

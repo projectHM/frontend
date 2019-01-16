@@ -14,6 +14,10 @@ class CostCalcuate extends Component {
             switch: ''
         }
     }
+<<<<<<< HEAD
+
+    setReq(req) {
+=======
     setReq(req){
         console.log(req.cpu);
         // const cpu = req.cpu;
@@ -22,6 +26,7 @@ class CostCalcuate extends Component {
         // const router = req.router;
         // const switch = req.switch;
 
+>>>>>>> e5fe131f7ed54c2e59a8ca8b66dd8645547bb9d8
         this.setState({
             cpu: cpu,
             ram: req.ram,
