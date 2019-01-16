@@ -7,6 +7,7 @@ import Main from './components/Main';
 import CostCalcuate from './components/CostCalculate';
 import MakeRequest from './components/MakeRequest';
 import TrackInfo from './components/TrackInfo';
+import ReqDone from './components/ReqDone';
 
 class App extends Component {
   constructor(){
@@ -69,6 +70,12 @@ class App extends Component {
       return (
         <div>
           <TrackInfo setActivePage={this.setActivePage.bind(this)}/>
+        </div>
+      )
+    } else if (this.state.activePage === 'ReqDone') {
+      return (
+        <div>
+          <ReqDone setActivePage={this.setActivePage.bind(this)}/>
         </div>
       )
   }
