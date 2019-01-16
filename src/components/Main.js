@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import CostCalcuate from './CostCalculate';
-
+import {Button } from  'react-bootstrap';
+import App from '../App.css';
 class Main extends Component {
     constructor(){
         super();
@@ -8,7 +9,6 @@ class Main extends Component {
             
         }
     }
-
     renderCostCalcuate(){
         console.log('render');
         return (
@@ -17,15 +17,17 @@ class Main extends Component {
             </div>
         )
     }
-
+    
     render(){
         return (
-            <div>
+            <div className="firstPage">
                 <h1>Main</h1>
-                <button onClick={()=>this.props.setActivePage('costCalculate')}>Show</button>
+
+                <Button bsStyle="primary" onClick={()=>this.props.setActivePage('costCalculate')}>Show</Button>
                 {/* {this.renderCostCalcuate()} */}
                 {/* <CostCalcuate/> */}
-            </div>
+
+            </div>  
         )
     }
 }

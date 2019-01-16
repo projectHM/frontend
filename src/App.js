@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Track from './components/Track';
 import TrackInfo from './components/TrackInfo';
+import { Button } from 'react-bootstrap';
 
 import './App.css';
 import Main from './components/Main';
@@ -73,8 +74,9 @@ class App extends Component {
           <header>
             C&D
           </header>
-          <button>Track</button>
-          {this.renderTrack()}
+          <button bsStyle="primary" onClick={() => this.setActivePage('track')}>Track</button>
+         
+          {/* {this.renderTrack()} */}
         </div>
         <div>
         {/* {this.renderPage()} */}
