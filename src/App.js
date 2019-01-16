@@ -17,12 +17,12 @@ class App extends Component {
     activePage: 'app'
     }
   }
+
   renderTrack(){
     console.log('render track');
     return (
         <div>
-            <Track/>
-            
+            <Track/>  
         </div>
     )
 }
