@@ -16,13 +16,21 @@ class CostCalcuate extends Component {
     }
 
     setReq(req){
+        console.log(req.cpu);
+        // const cpu = req.cpu;
+        // const ram = req.ram;
+        // const disk = req.disk;
+        // const router = req.router;
+        // const switch = req.switch;
+
         this.setState({
-            cpu: req.cpu,
+            cpu: cpu,
             ram: req.ram,
             disk: req.disk,
             router: req.router,
             switch: req.switch
-        })
+        },
+        console.log('reqqqqq',this.state))
     }
 
     handelSubmit(event){

@@ -24,7 +24,6 @@ class MakeRequest extends Component {
     }
 
     handelSubmit(event){
-        this.props.setActivePage('ReqDone');
         event.preventDefault();
         const request = this.state.req;
         const client = {
@@ -44,6 +43,7 @@ class MakeRequest extends Component {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
+                this.props.setActivePage('ReqDone');
                 // this.props.setActivePage('track');
             })
             .catch(error => console.log(error));
