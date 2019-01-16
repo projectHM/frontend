@@ -7,8 +7,8 @@ class DataCenter extends Component {
             cpu: '',
             ram: '',
             disk: '',
-            router: '',
-            switch: ''
+            routerInfo: '',
+            switchInfo: ''
         }
     }
     handelChange(event){
@@ -24,7 +24,9 @@ class DataCenter extends Component {
     handelSubmit(event){
         // event
         event.preventDefault();
+        console.log('sttttate in datacenter',this.state);
         this.props.setReq(this.state);
+        this.props.setActivePage('makeReq');
     }
 
     renderCost(){
@@ -44,13 +46,13 @@ class DataCenter extends Component {
             <div>
                 <h1>Data Center</h1>
                 <div>
-                    <form>
+                    <form onSubmit={this.handelSubmit.bind(this)}>
                         <label>CPU</label><input type="text" name="cpu" onChange={this.handelChange.bind(this)}/><br/>
                         <label>RAM</label><input type="text" name="ram" onChange={this.handelChange.bind(this)}/><br/>
                         <label>Disk</label><input type="text" name="disk" onChange={this.handelChange.bind(this)}/><br/>
                         <label>Router</label><input type="number" name="router" onChange={this.handelChange.bind(this)}/><br/>
                         <label>Switch</label><input type="number" name="switch" onChange={this.handelChange.bind(this)}/><br/>
-                        <button onClick={()=>this.props.setActivePage('makeReq')}>Make Request</button>
+                        <button>Make Request</button>
                     </form>
                     <div>
                         {this.renderCost()}
