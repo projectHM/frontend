@@ -24,7 +24,7 @@ class MakeRequest extends Component {
     }
 
     handelSubmit(event){
-        this.props.setActivePage('track');
+        this.props.setActivePage('ReqDone');
         event.preventDefault();
         const request = this.state.req;
         const client = {

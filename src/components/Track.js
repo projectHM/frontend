@@ -7,33 +7,49 @@ class Track extends Component{
         super();
         this.state = {
          req:[],
+         clientInfo: '',
          name: '',
          email: '',
          phone: '',
-         location: ''
+         location: '',
+         activePage: ''
         }
        }
     
        rendeRenderTrack(){
         console.log('render track page');
-        return (
-          <div>
-        <TrackInfo />
-          </div>
-        )
+        if (this.state.activePage === 'TrackInfo'){
+            return (
+                <div>
+              <TrackInfo clientInfo={this.state.clientInfo}/>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                   <form onSubmit={this.handleSubmit.bind(this)}>
+                    <label>Email: </label><input type="email" name="email" onChange={this.handleChange.bind(this)}/><br/>
+                    <button>Supmit</button>
+                    </form>
+                </div>
+              )
+        }
     }
 
-    handelSubmit(event){
-        event.preventDefault();
-        const url = '';
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                this.setTrackActivePage('track')
-            })
-            .catch(error => console.log(error))
-    }
+    // handelSubmit(event){
+    //     event.preventDefault();
+    //     const url = '';
+    //     fetch(url)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             console.log(data);
+    //             this.setState({
+    //                 clientInfo: data
+    //             })
+    //             this.setTrackActivePage('TrackInfo');
+    //         })
+    //         .catch(error => console.log(error))
+    // }
 
     setTrackActivePage(activePage) {
         this.setState( {
@@ -55,7 +71,11 @@ class Track extends Component{
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
-                this.props.setActivePage('trackInfo');
+                // this.props.setActivePage('trackInfo');
+                this.setState({
+                    clientInfo: data
+                })
+                this.setTrackActivePage('TrackInfo');
             })
             .catch(error => console.error('Error:', error));
         }
@@ -67,11 +87,11 @@ class Track extends Component{
    
      <label>Email: </label><input type="email" name="email" /><br/>
     */}
-     <form onSubmit={this.handleSubmit.bind(this)}>
+     {/* <form onSubmit={this.handleSubmit.bind(this)}>
      <label>Email: </label><input type="email" name="email" onChange={this.handleChange.bind(this)}/><br/>
      <button>Supmit</button>
-     </form>
-     {/* {this.rendeRenderTrack()} */}
+     </form> */}
+     {this.rendeRenderTrack()}
      {/* {this.rendeRenderTrack()} */}
      </div>
       ) 
