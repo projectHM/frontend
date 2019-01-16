@@ -59,8 +59,28 @@ class RenderTrack extends Component {
     })
     }
 
+<<<<<<< HEAD
     deleteFunction(){
 
+=======
+    deleteFunction(id){
+        const url = `http://localhost:3000/cd/requests/${id}`;
+        fetch(url, {
+            method: 'DELETE'
+          })
+          .then(response => response.json())
+          .then(data => {
+              console.log(data);
+            //const delete 
+            // this.setState({
+            //     req: data
+
+            // })
+          })
+          .catch(error => {
+            console.log(error);
+          })
+>>>>>>> e5fe131f7ed54c2e59a8ca8b66dd8645547bb9d8
     }
 
     render(){
@@ -76,11 +96,20 @@ class RenderTrack extends Component {
                 <button>Edit</button>
             </form>
          */}
+<<<<<<< HEAD
              <div>
              <button onClick={this.deleteFunction()}> Delete</button>
+=======
+        
+         <p>{this.props.req.date}</p>
+         <p>{this.props.req.location}</p>
+         <p>{this.props.req.total}</p>
+             <div>
+             <button onClick={()=>this.deleteFunction(this.props.req.id)}>Delete</button>
+>>>>>>> e5fe131f7ed54c2e59a8ca8b66dd8645547bb9d8
              </div>
 
              {/* <TrackInfo/> */}
              </div>
         )}}
-export default RenderTrack ;
+export default RenderTrack;

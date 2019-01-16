@@ -2,59 +2,60 @@ import React, { Component } from 'react';
 import RenderTrack from './RenderTrack';
 
 class TrackInfo extends Component{
-  constructor(){
-        super();
+  constructor(props){
+    super(props);
     this.state={
         req:[],
-        name: '',
-        email: '',
-        phone: '',
-        location: ''
+        name: props.clientInfo ? props.clientInfo.clinets.name: '',
+        email: props.clientInfo ? props.clientInfo.clinets.email: '',
+        phone: props.clientInfo ? props.clientInfo.clinets.phone: '',
+        location: props.clientInfo ? props.clientInfo.clinets.location: '',
+        id: props.clientInfo ? props.clientInfo.clinets.id: ''
         
     }
     }
-
     componentDidMount(){
         console.log('fetching data');
-        fetch('http://localhost:3000/')
+        fetch(`http://localhost:3000/cd/requests?client_id=${this.state.id}`)
         .then( response => response.json())
         .then( data => {
-         console.log(data);
-         this.setState({
-         req: data
-          })
-          })
+          console.log(data);
+          this.setState({
+          req: data.request
+            })
+        })
           .catch( error => {
             console.log(error)
           })
       }
 
-    update(data) {
-        const url = `http://localhost:3000/`
+    update(id, userData) {
+        const url = `http://localhost:3000/cd/clients/${id}`
         fetch(url, {
           method: 'PUT',
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(data)
+          body: JSON.stringify(userData)
         })
-
         .then(response => response.json())
         .then(data => {
+          console.log(data);
+      //  const update =this.state.req.map(el => {
+      //   return el.id === data.id ? data : el
+      // //     })
+      //     console.log('current state: ', this.state.req);
+      //     console.log('new state: ', update)
     
-       const update =this.state.req.map(el => {
-        return el.id === data.id ? data : el
-          })
-          console.log('current state: ', this.state.req);
-          console.log('new state: ', update)
-    
-          this.setState({
-          req: data
+        //   this.setState({
+        //   req: data
+        // })
         })
         .catch(error => {
           console.log(error);
         })
-    })}
+    // })
+  }
 
 
     deleteRequest(id) {
@@ -67,46 +68,79 @@ class TrackInfo extends Component{
             //const delete 
             this.setState({
                 req: data
-
             })
           })
           .catch(error => {
             console.log(error);
           })
+    } 
+     
+     renderRequest() {
+        // return this.state.req.map((req,index) => {
+        //   return (
+        //     <RenderTrack 
+        //       key={index}
+        //       req={req}
+        //       setCurrentReq={this.setCurrentReq.bind(this)}
+
+        //     })
+        //   })
+        //   .catch(error => {
+        //     console.log(error);
+        //   })
       }
 
      handelChange(event){
+      this.setState({ [event.target.name] : event.target.value })
+     }
 
+     handelSubmit(event){
+        event.preventDefault();
+      
+        const clientInfo = {
+          name: this.state.name,
+          email: this.state.email,
+          phone: this.state.phone,
+          location: this.state.location
+        }
+        this.update(this.state.id, clientInfo);
      }
 
      renderRequest(allRequest) {
+       console.log(allRequest);
         return allRequest.map((req) => {
           return (
-            <RenderTrack key={req.id}
+            <RenderTrack 
+              key={req.id}
               req={req}
             />
           )
         })
       }
+
     renderTrack(){
         console.log('render track');
+        // console.log(this.props.);
         return (
-          <div> 
+          <div className="trackEmail"> 
               <h1>Track Info page</h1>
-              <form onSubmit>
-                <label>Name: </label><input type="text" name="name" onChange={this.handelChange.bind(this)}/><br/>
-                <label>Email: </label><input type="email" name="email" onChange={this.handelChange.bind(this)}/><br/>
-                <label>Phone: </label><input type="number" name="phone" onChange={this.handelChange.bind(this)}/><br/>
-                <label>Location: </label><input type="text" name="location" onChange={this.handelChange.bind(this)}/><br/>
+              <form onSubmit={this.handelSubmit.bind(this)}>
+                <label>Name: </label><input type="text" name="name" onChange={this.handelChange.bind(this)} value={this.state.name}/><br/>
+                <label>Email: </label><input type="email" name="email" onChange={this.handelChange.bind(this)} value={this.state.email}/><br/>
+                <label>Phone: </label><input type="number" name="phone" onChange={this.handelChange.bind(this)} value={this.state.phone}/><br/>
+                <label>Location: </label><input type="text" name="location" onChange={this.handelChange.bind(this)} value={this.state.location}/><br/>
                 <button>Edit</button>
             </form>
             <div>
-                <RenderTrack req={this.state.req} 
+              {/* {this.renderRequest(this.state.req)} */}
+                {/* <RenderTrack req={this.state.req} 
                 deleteRequest={this.deleteRequest.bind(this)}
                 update={this.update.bind(this)}
-                />
+                /> */}
+
             </div>
-            </div>
+            
+          </div>
         )
     }
     render(){
@@ -117,6 +151,5 @@ class TrackInfo extends Component{
             </div>
         )
     }
-
-}
+  }
 export default TrackInfo;
