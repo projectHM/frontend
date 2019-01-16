@@ -9,8 +9,8 @@ class TrackInfo extends Component{
         name: '',
         email: '',
         phone: '',
-        location: ''
-        
+        location: '',
+        activePage:'trackInfo'
     }
     }
     componentDidMount(){
@@ -72,25 +72,28 @@ class TrackInfo extends Component{
           .catch(error => {
             console.log(error);
           })
-      }
+    }
 
      handelChange(event){
 
-     }
+    }
 
      handelSubmit(event){
-
-     }
-
-     renderRequest(allRequest) {
-        return allRequest.map((req) => {
-          return (
-            <RenderTrack 
-              key={req.id}
-              req={req}
-            />
-          )
-        })
+    {
+        
+    }
+    } 
+     
+     renderRequest() {
+        // return this.state.req.map((req,index) => {
+        //   return (
+        //     <RenderTrack 
+        //       key={index}
+        //       req={req}
+        //       setCurrentReq={this.setCurrentReq.bind(this)}
+        //     />
+        //   )
+        // })
       }
 
     renderTrack(){
@@ -110,6 +113,7 @@ class TrackInfo extends Component{
                 deleteRequest={this.deleteRequest.bind(this)}
                 update={this.update.bind(this)}
                 /> */}
+
             </div>
             </div>
         )
@@ -122,6 +126,5 @@ class TrackInfo extends Component{
             </div>
         )
     }
-
-}
+  }
 export default TrackInfo;

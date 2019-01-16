@@ -40,7 +40,7 @@ class CostCalcuate extends Component {
 
     render(){
         return(
-            <div>
+            <div className="App">
                 <p>cost calculate</p>
                 <div>
 

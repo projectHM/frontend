@@ -62,7 +62,7 @@ class Track extends Component{
             
     render() {
     return(
-     <div className="modal">
+     <div>
      {/* <form onSubmit={this.handelSubmit.bind(this)}>
    
      <label>Email: </label><input type="email" name="email" /><br/>
