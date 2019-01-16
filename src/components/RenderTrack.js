@@ -60,7 +60,7 @@ class RenderTrack extends Component {
     }
 
     deleteFunction(){
-
+        
     }
 
     render(){
@@ -76,6 +76,8 @@ class RenderTrack extends Component {
                 <button>Edit</button>
             </form>
          */}
+        
+         <p>{this.props.req.date}</p>
              <div>
              <button onClick={this.deleteFunction()}> Delete</button>
              </div>
