@@ -19,7 +19,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-    activePage: 'app'
+    activePage: 'app',
+    reqInfo: ''
     }
   }
 
@@ -30,6 +31,12 @@ class App extends Component {
             <Track/>  
         </div>
     )
+}
+
+setReqInfo(reqInfo){
+  this.setState({
+    reqInfo: reqInfo
+  })
 }
 
   setActivePage(activePage){
@@ -57,13 +64,13 @@ class App extends Component {
     else if (this.state.activePage === 'costCalculate') {
         return (
           <div>
-            <CostCalcuate setActivePage={this.setActivePage.bind(this)}/>
+            <CostCalcuate setActivePage={this.setActivePage.bind(this)} setReqInfo={this.setReqInfo.bind(this)}/>
           </div>
         )
     } else if (this.state.activePage === 'makeReq') {
         return (
           <div>
-            <MakeRequest setActivePage={this.setActivePage.bind(this)}/>
+            <MakeRequest setActivePage={this.setActivePage.bind(this)} reqInfo={this.state.reqInfo}/>
           </div>
         )
     } else if (this.state.activePage === 'track') {

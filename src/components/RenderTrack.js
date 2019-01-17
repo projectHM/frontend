@@ -3,16 +3,28 @@ import React, {Component} from 'react';
 
 class RenderTrack extends Component {
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
            req:[],
            name: '',
            email: '',
            phone: '',
-           location: ''
+           location: '',
+           id: props.req.id,
+           prodects: ''
         }
     } 
+
+    componentDidMount(){
+        const url = `http://localhost:3000/cd/reqProduct?request_id=${this.state.id}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => console.log(error));
+    }
 
     handelChange(event){
         const currentInput = event.target.name;
@@ -59,10 +71,7 @@ class RenderTrack extends Component {
     })
     }
 
-<<<<<<< HEAD
-    deleteFunction(){
 
-=======
     deleteFunction(id){
         const url = `http://localhost:3000/cd/requests/${id}`;
         fetch(url, {
@@ -80,7 +89,6 @@ class RenderTrack extends Component {
           .catch(error => {
             console.log(error);
           })
->>>>>>> e5fe131f7ed54c2e59a8ca8b66dd8645547bb9d8
     }
 
     render(){
@@ -96,17 +104,12 @@ class RenderTrack extends Component {
                 <button>Edit</button>
             </form>
          */}
-<<<<<<< HEAD
-             <div>
-             <button onClick={this.deleteFunction()}> Delete</button>
-=======
         
          <p>{this.props.req.date}</p>
          <p>{this.props.req.location}</p>
          <p>{this.props.req.total}</p>
              <div>
              <button onClick={()=>this.deleteFunction(this.props.req.id)}>Delete</button>
->>>>>>> e5fe131f7ed54c2e59a8ca8b66dd8645547bb9d8
              </div>
 
              {/* <TrackInfo/> */}

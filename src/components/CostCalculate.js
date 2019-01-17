@@ -14,27 +14,30 @@ class CostCalcuate extends Component {
             switch: ''
         }
     }
-<<<<<<< HEAD
 
-    setReq(req) {
-=======
     setReq(req){
         console.log(req.cpu);
-        // const cpu = req.cpu;
-        // const ram = req.ram;
-        // const disk = req.disk;
-        // const router = req.router;
-        // const switch = req.switch;
+        const cpuInfo = req.cpu;
+        const ramInfo = req.ram;
+        const diskInfo = req.disk;
+        const routerInfo = req.router;
+        const switchInfo = req.switch;
+        
+        console.log(ramInfo,', ', cpuInfo, ', ', diskInfo, ', ',routerInfo, ', ',switchInfo);
 
->>>>>>> e5fe131f7ed54c2e59a8ca8b66dd8645547bb9d8
         this.setState({
-            cpu: cpu,
-            ram: req.ram,
-            disk: req.disk,
-            router: req.router,
-            switch: req.switch
-        },
-        console.log('reqqqqq',this.state))
+            cpu: cpuInfo,
+            ram: ramInfo,
+            disk: diskInfo,
+            router: routerInfo,
+            switch: switchInfo
+        }, () => {
+            console.log('after make req',this.state);
+            this.props.setReqInfo(this.state);
+            this.props.setActivePage('makeReq');
+        })
+
+        // console.log('cpu',this.state.cpu);
     }
 
     handelSubmit(event) {

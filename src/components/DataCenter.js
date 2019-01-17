@@ -7,7 +7,6 @@ class DataCenter extends Component {
             cpu: '',
             ram: '',
             disk: '',
-<<<<<<< HEAD
             router: '',
             switch: '',
             allProudcts: [],
@@ -66,12 +65,7 @@ class DataCenter extends Component {
 
             // console.log(filterCPU);
         }
-=======
-            routerInfo: '',
-            switchInfo: ''
-        }
-    }
->>>>>>> e5fe131f7ed54c2e59a8ca8b66dd8645547bb9d8
+        
     handelChange(event){
         // const currentInput = event.target.name;
         // const newValue = event.target.value;
@@ -97,7 +91,7 @@ class DataCenter extends Component {
         event.preventDefault();
         console.log('sttttate in datacenter',this.state);
         this.props.setReq(this.state);
-        this.props.setActivePage('makeReq');
+        // this.props.setActivePage('makeReq');
     }
 
 renderProducts(){
