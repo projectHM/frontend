@@ -32,7 +32,7 @@ class Cloud extends Component {
 
     render(){
         return(
-            <div>
+            <div className="cloud">
                 <h1>Cloud</h1>
                 <form>
                     <label>Day: </label><input type="number" name="day" onChange={this.handelChange.bind(this)}/><br/>

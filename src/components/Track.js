@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+//import { Button } from 'react-bootstrap';
 
 import TrackInfo from './TrackInfo';
 
-class Track extends Component{
-    constructor(){
+class Track extends Component {
+    constructor() {
         super();
         this.state = {
+
          req:[],
          clientInfo: '',
          name: '',
@@ -26,11 +28,14 @@ class Track extends Component{
             )
         } else {
             return (
-                <div>
+                <div className="trackEmail">
+                    
                    <form onSubmit={this.handleSubmit.bind(this)}>
-                    <label>Email: </label><input type="email" name="email" onChange={this.handleChange.bind(this)}/><br/>
-                    <button>Supmit</button>
-                    </form>
+                
+                   <label>Email: </label><input type="email" name="email" onChange={this.handleChange.bind(this)}/><br/>
+                   <button> Supmit </button>
+                  
+                   </form>
                 </div>
               )
         }
@@ -57,10 +62,37 @@ class Track extends Component{
         })
     }
 
+    
         handleChange(event){
             // console.log({[event.target.email]:event.target.value});
             this.setState({ [event.target.name] : event.target.value })
         }
+    
+
+    rendeRenderTrack() {
+        console.log('render track page');
+        if (this.state.activePage === 'TrackInfo') {
+            return (
+                <div>
+                    <TrackInfo clientInfo={this.state.clientInfo} />
+                </div>
+            )
+        } else {
+            return (
+                <div className="trackEmail">
+
+                    <form onSubmit={this.handleSubmit.bind(this)}>
+
+                        <label>Email: </label><input type="email" name="email" onChange={this.handleChange.bind(this)} /><br />
+                        <button> Supmit </button>
+                        {this.state.clientInfo === 'invalid' ? <p>invalid user, try again.</p> : ''}
+
+                    </form>
+                </div>
+            )
+
+        }
+    }
 
         handleSubmit(event){
             event.preventDefault();
@@ -82,7 +114,7 @@ class Track extends Component{
             
     render() {
     return(
-     <div className="modal">
+     <div>
      {/* <form onSubmit={this.handelSubmit.bind(this)}>
    
      <label>Email: </label><input type="email" name="email" /><br/>

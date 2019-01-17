@@ -71,6 +71,7 @@ class RenderTrack extends Component {
     })
     }
 
+
     deleteFunction(id){
         const url = `http://localhost:3000/cd/requests/${id}`;
         fetch(url, {

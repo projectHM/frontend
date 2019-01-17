@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import Track from './components/Track';
+<<<<<<< HEAD
+import TrackInfo from './components/TrackInfo';
+import { Button } from 'react-bootstrap';
+=======
+import { Button} from 'react-bootstrap';
 // import TrackInfo from './components/TrackInfo';
+>>>>>>> e5fe131f7ed54c2e59a8ca8b66dd8645547bb9d8
 
 import './App.css';
 import Main from './components/Main';
@@ -92,11 +98,18 @@ setReqInfo(reqInfo){
     return (
       <div className="app">
         <div>
-          <header>
+          <header className="header">
             C&D
-          </header>
-          <button onClick={() => this.setActivePage('track')}>Track</button>
+         
+          <Button className="track" bsStyle="primary" onClick={() => this.setActivePage('track')}>Track</Button>
           {/* {this.renderTrack()} */}
+          </header>
+<<<<<<< HEAD
+          <button bsStyle="primary" onClick={() => this.setActivePage('track')}>Track</button>
+         
+          {/* {this.renderTrack()} */}
+=======
+>>>>>>> e5fe131f7ed54c2e59a8ca8b66dd8645547bb9d8
         </div>
         <div>
         {/* {this.renderPage()} */}
