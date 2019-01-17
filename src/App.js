@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Track from './components/Track';
+
 import { Button} from 'react-bootstrap';
+import { Player } from 'video-react';
+
 // import TrackInfo from './components/TrackInfo';
 
 import './App.css';
@@ -9,6 +12,7 @@ import CostCalcuate from './components/CostCalculate';
 import MakeRequest from './components/MakeRequest';
 import TrackInfo from './components/TrackInfo';
 import ReqDone from './components/ReqDone';
+
 
 class App extends Component {
   constructor(){
@@ -88,16 +92,25 @@ class App extends Component {
         <div>
           <header className="header">
             C&D
-         
-          <Button className="track" bsStyle="primary" onClick={() => this.setActivePage('track')}>Track</Button>
+         <div>  
+<div class="btn-group" role="group" aria-label="">
+<Button bsStyle="primary" onClick={() => this.setActivePage('track')}>Track</Button>
+</div>
+<div class="btn-group" role="group" aria-label="">
+<Button  bsStyle="primary" onClick={() => this.setActivePage('app')}>Home</Button>
+</div>
+</div> 
+           
           {/* {this.renderTrack()} */}
           </header>
         </div>
+       
         <div>
         {/* {this.renderPage()} */}
         {/* <h1>Main</h1>
               <button onClick={()=>this.setActivePage('costCalculate')}>Show</button> */}
               {this.renderPage()}
+         
               {/* {this.renderCostCalcuate()} */}
               {/* <CostCalcuate/> */}
         </div>

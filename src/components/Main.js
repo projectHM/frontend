@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import CostCalcuate from './CostCalculate';
 import {Button } from  'react-bootstrap';
 import App from '../App.css';
+import { Player } from 'video-react';
+
+
 class Main extends Component {
     constructor(){
         super();
@@ -17,12 +20,13 @@ class Main extends Component {
             </div>
         )
     }
-    
+
     render(){
         return (
             <div className="firstPage">
+              
                 <h1>Main</h1>
-
+          
                 <Button bsStyle="primary" onClick={()=>this.props.setActivePage('costCalculate')}>Show</Button>
                 {/* {this.renderCostCalcuate()} */}
                 {/* <CostCalcuate/> */}

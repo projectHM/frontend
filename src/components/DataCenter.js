@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import { button} from 'react-bootstrap';
 class DataCenter extends Component {
     constructor(){
         super();
@@ -52,7 +52,7 @@ class DataCenter extends Component {
                         <label>Disk</label><input type="text" name="disk" onChange={this.handelChange.bind(this)}/><br/>
                         <label>Router</label><input type="number" name="router" onChange={this.handelChange.bind(this)}/><br/>
                         <label>Switch</label><input type="number" name="switch" onChange={this.handelChange.bind(this)}/><br/>
-                        <button>Make Request</button>
+                        <button bsStyle="primary">Make Request</button>
                     </form>
                     <div>
                         {this.renderCost()}

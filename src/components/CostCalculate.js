@@ -3,6 +3,7 @@ import MakeRequest from './MakeRequest';
 import DataCenter from './DataCenter';
 import Cloud from './Cloud';
 
+
 class CostCalcuate extends Component {
     constructor() {
         super();
@@ -23,7 +24,7 @@ class CostCalcuate extends Component {
         // const switch = req.switch;
 
         this.setState({
-            cpu: cpu,
+          //  cpu: cpu,
             ram: req.ram,
             disk: req.disk,
             router: req.router,
@@ -48,7 +49,7 @@ class CostCalcuate extends Component {
     render() {
         return (
             <div>
-                <p>cost calculate</p>
+                <p> CostCalcuate</p>
                 <div className="box">
                     <div>
                         <DataCenter setReq={this.setReq.bind(this)} setActivePage={this.props.setActivePage.bind(this)} />
