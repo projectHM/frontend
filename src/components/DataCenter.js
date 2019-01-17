@@ -7,8 +7,8 @@ class DataCenter extends Component {
             cpu: '',
             ram: '',
             disk: '',
-            routerInfo: '',
-            switchInfo: ''
+            router: '',
+            switch: ''
         }
     }
     handelChange(event){
@@ -26,7 +26,7 @@ class DataCenter extends Component {
         event.preventDefault();
         console.log('sttttate in datacenter',this.state);
         this.props.setReq(this.state);
-        this.props.setActivePage('makeReq');
+        // this.props.setActivePage('makeReq');
     }
 
     renderCost(){
