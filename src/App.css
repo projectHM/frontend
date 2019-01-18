@@ -2,17 +2,11 @@
     margin: 0;
     position: absolute;
     top: 60%;
-<<<<<<< HEAD
-    left: 50%;
-
-    
-}
-=======
-    left: 49%;
+    left: 45%;  
 }
 .header{
-    background-color: #80b3ff;
-    height: 90px;
+    background-color: #AEDCF9;
+    height: 120px;
 }
 
 .track{
@@ -39,7 +33,7 @@
     justify-content: flex-start;
     text-align: center;
     max-width: 97%;
-    height: 90%;
+    height: 93%;
     width: 90%;
     padding: 7% 30px;
     left: 50px;
@@ -49,7 +43,12 @@
     text-align: center;
     padding-left: 15px;
 }
+.dataCenter button{
 
+display: block;
+margin: 20px;
+
+}
 .cloud{
     margin: 9% auto;
     background: rgba(242, 242, 242, 0.65);
@@ -65,7 +64,7 @@
 
 .trackEmail{
     margin: 9% auto;
-    background: rgba(155, 152, 152, 0.65);
+    background:  rgba(242, 242, 242, 0.65);
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
@@ -78,13 +77,27 @@
 }
 
 .trackEmail button {
-   background-color: #80b3ff;
+   background-color: rgba(155, 152, 152, 0.65 );
+   color:white;
 }
+
 .box {
     display: flex;
     justify-content: space-around;
-    background: rgba(155, 152, 152, 0.65);
+   background-color: rgba(242, 242, 242, 0.65);
+   
+}
+.app button{
+position:absolute;
+background-color: #4A9AF5;
 }
 
+.firstPage button {
+    width: 170px;
+   
+}
 
->>>>>>> e5fe131f7ed54c2e59a8ca8b66dd8645547bb9d8
+.app Button {
+    left: 75em;
+    width: 100px
+}

@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import Track from './components/Track';
-<<<<<<< HEAD
 import TrackInfo from './components/TrackInfo';
 import { Button } from 'react-bootstrap';
-=======
-import { Button} from 'react-bootstrap';
-// import TrackInfo from './components/TrackInfo';
->>>>>>> e5fe131f7ed54c2e59a8ca8b66dd8645547bb9d8
+import { Player } from 'video-react';
 
 import './App.css';
 import Main from './components/Main';
@@ -14,6 +10,7 @@ import CostCalcuate from './components/CostCalculate';
 import MakeRequest from './components/MakeRequest';
 import TrackInfo from './components/TrackInfo';
 import ReqDone from './components/ReqDone';
+
 
 class App extends Component {
   constructor(){
@@ -100,22 +97,23 @@ setReqInfo(reqInfo){
         <div>
           <header className="header">
             C&D
-         
-          <Button className="track" bsStyle="primary" onClick={() => this.setActivePage('track')}>Track</Button>
+         <div>  
+<div class="btn-group" role="group" aria-label="">
+<Button bsStyle="primary" onClick={() => this.setActivePage('track')}>Track</Button>
+</div>
+<div class="btn-group" role="group" aria-label="">
+<Button  bsStyle="primary" onClick={() => this.setActivePage('app')}>Home</Button>
+</div>
+</div> 
+           
           {/* {this.renderTrack()} */}
           </header>
-<<<<<<< HEAD
-          <button bsStyle="primary" onClick={() => this.setActivePage('track')}>Track</button>
-         
-          {/* {this.renderTrack()} */}
-=======
->>>>>>> e5fe131f7ed54c2e59a8ca8b66dd8645547bb9d8
         </div>
-        <div>
         {/* {this.renderPage()} */}
         {/* <h1>Main</h1>
               <button onClick={()=>this.setActivePage('costCalculate')}>Show</button> */}
               {this.renderPage()}
+         
               {/* {this.renderCostCalcuate()} */}
               {/* <CostCalcuate/> */}
         </div>
