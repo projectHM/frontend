@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import Track from './components/Track';
-
-import { Button} from 'react-bootstrap';
+import TrackInfo from './components/TrackInfo';
+import { Button } from 'react-bootstrap';
 import { Player } from 'video-react';
-
-// import TrackInfo from './components/TrackInfo';
 
 import './App.css';
 import Main from './components/Main';
@@ -18,7 +16,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-    activePage: 'app'
+    activePage: 'app',
+    reqInfo: ''
     }
   }
 
@@ -29,6 +28,12 @@ class App extends Component {
             <Track/>  
         </div>
     )
+}
+
+setReqInfo(reqInfo){
+  this.setState({
+    reqInfo: reqInfo
+  })
 }
 
   setActivePage(activePage){
@@ -56,13 +61,13 @@ class App extends Component {
     else if (this.state.activePage === 'costCalculate') {
         return (
           <div>
-            <CostCalcuate setActivePage={this.setActivePage.bind(this)}/>
+            <CostCalcuate setActivePage={this.setActivePage.bind(this)} setReqInfo={this.setReqInfo.bind(this)}/>
           </div>
         )
     } else if (this.state.activePage === 'makeReq') {
         return (
           <div>
-            <MakeRequest setActivePage={this.setActivePage.bind(this)}/>
+            <MakeRequest setActivePage={this.setActivePage.bind(this)} reqInfo={this.state.reqInfo}/>
           </div>
         )
     } else if (this.state.activePage === 'track') {
@@ -104,8 +109,6 @@ class App extends Component {
           {/* {this.renderTrack()} */}
           </header>
         </div>
-       
-        <div>
         {/* {this.renderPage()} */}
         {/* <h1>Main</h1>
               <button onClick={()=>this.setActivePage('costCalculate')}>Show</button> */}

@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import Map from './Map'
 
 class MakeRequest extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state ={
             name: '',
             email: '',
             phone: '',
             location: '',
-            req: []
+            req: props.reqInfo
         }
     }
 
@@ -24,6 +24,7 @@ class MakeRequest extends Component {
     }
 
     handelSubmit(event){
+        this.props.setActivePage('ReqDone');
         event.preventDefault();
         const request = this.state.req;
         const client = {
@@ -43,10 +44,45 @@ class MakeRequest extends Component {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                this.props.setActivePage('ReqDone');
+                this.createReq();
                 // this.props.setActivePage('track');
             })
             .catch(error => console.log(error));
+    }
+
+    createReq(){
+        const request = this.state.req;
+
+        // const url = 'http://localhost:3000/cd/requests';
+        fetch('http://localhost:3000/cd/requests', {
+            method: 'POST',
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body: JSON.stringify(request)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+
+            })
+            .catch(error => console.log(error));
+
+            const v = '';
+
+            fetch('http://localhost:3000/cd/reqProduct', {
+                method: 'POST',
+                headers: {
+                "Content-Type": "application/json"
+                },
+                body: JSON.stringify(v)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    // this.props.setActivePage('ReqDone');
+                })
+                .catch(error => console.log(error));
     }
 
 

@@ -2,7 +2,7 @@
     margin: 0;
     position: absolute;
     top: 60%;
-    left: 45%;
+    left: 45%;  
 }
 .header{
     background-color: #AEDCF9;
@@ -101,4 +101,3 @@ background-color: #4A9AF5;
     left: 75em;
     width: 100px
 }
-
