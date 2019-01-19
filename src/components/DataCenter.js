@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { timingSafeEqual } from 'crypto';
+import { button} from 'react-bootstrap';
 
 class DataCenter extends Component {
     constructor(){
@@ -209,7 +210,7 @@ renderProducts(){
                         <br/>
                         <label>Router</label><input type="number" name="router" onChange={this.handelChange.bind(this)} required/><br/>
                         <label>Switch</label><input type="number" name="switch" onChange={this.handelChange.bind(this)} required/><br/>
-                        <button>Make Request</button>
+                        <button bsStyle="primary">Make Request</button>
                     </form>
                     <div>
                         {this.renderCost()}

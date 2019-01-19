@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import { Button } from 'react-bootstrap';
 
 import TrackInfo from './TrackInfo';
 
@@ -29,13 +28,17 @@ class Track extends Component {
         } else {
             return (
                 <div className="trackEmail">
-                    
-                   <form onSubmit={this.handleSubmit.bind(this)}>
-                
-                   <label>Email: </label><input type="email" name="email" onChange={this.handleChange.bind(this)}/><br/>
-                   <button> Supmit </button>
-                  
-                   </form>
+
+
+                    <form onSubmit={this.handleSubmit.bind(this)}>
+
+                        <label>Email: </label><input type="email" name="email" onChange={this.handleChange.bind(this)} /><br />
+                       
+                        <button> Submit </button>
+                        
+                        {this.state.clientInfo === 'invalid' ? <p>invalid user, try again.</p> : ''}
+
+                    </form>
                 </div>
               )
         }
@@ -61,13 +64,11 @@ class Track extends Component {
             activePage: activePage
         })
     }
-
-    
-        handleChange(event){
-            // console.log({[event.target.email]:event.target.value});
-            this.setState({ [event.target.name] : event.target.value })
-        }
-    
+  
+    handleChange(event) {
+        // console.log({[event.target.email]:event.target.value});
+        this.setState({ [event.target.name]: event.target.value })
+    }  
 
     rendeRenderTrack() {
         console.log('render track page');
