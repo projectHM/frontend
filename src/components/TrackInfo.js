@@ -4,14 +4,13 @@ import RenderTrack from './RenderTrack';
 class TrackInfo extends Component{
   constructor(props){
     super(props);
-    this.state={
+    this.state = {
         req:[],
         name: props.clientInfo ? props.clientInfo.clinets.name: '',
         email: props.clientInfo ? props.clientInfo.clinets.email: '',
         phone: props.clientInfo ? props.clientInfo.clinets.phone: '',
         location: props.clientInfo ? props.clientInfo.clinets.location: '',
-        id: props.clientInfo ? props.clientInfo.clinets.id: ''
-        
+        id: props.clientInfo ? props.clientInfo.clinets.id: ''   
     }
     }
     componentDidMount(){

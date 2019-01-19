@@ -57,7 +57,7 @@ class Track extends Component {
     // }
 
     setTrackActivePage(activePage) {
-        this.setState( {
+        this.setState({
             activePage: activePage
         })
     }
@@ -83,7 +83,7 @@ class Track extends Component {
 
                     <form onSubmit={this.handleSubmit.bind(this)}>
 
-                        <label>Email: </label><input type="email" name="email" onChange={this.handleChange.bind(this)} /><br />
+                        <label>Email: </label><input type="email" name="email" onChange={this.handleChange.bind(this)} required/><br />
                         <button> Supmit </button>
                         {this.state.clientInfo === 'invalid' ? <p>invalid user, try again.</p> : ''}
 

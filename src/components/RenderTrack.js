@@ -94,7 +94,7 @@ class RenderTrack extends Component {
     render(){
         return(
     
-            <div className="modal">
+            <div>
             <h1>Render Track page</h1>
             {/* <form onSubmit={this.handleSubmit.bind(this)}>
                 <label>Name: </label><input type="text" name="name" onChange={this.handelChange.bind(this)}/><br/>
@@ -106,7 +106,7 @@ class RenderTrack extends Component {
          */}
         
          <p>{this.props.req.date}</p>
-         <p>{this.props.req.location}</p>
+         {/* <p>{this.props.req.location}</p> */}
          <p>{this.props.req.total}</p>
              <div>
              <button onClick={()=>this.deleteFunction(this.props.req.id)}>Delete</button>
