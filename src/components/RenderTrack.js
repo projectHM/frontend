@@ -6,7 +6,7 @@ class RenderTrack extends Component {
     constructor(props){
         super(props);
         this.state = {
-           req:[],
+           req:props.allReqArr,
            name: '',
            email: '',
            phone: '',
@@ -36,43 +36,45 @@ class RenderTrack extends Component {
         })
     }
 
-    handleSubmit(data) {
-        data.preventDefault();
-        const request = this.state.req;
-        const client = {
-            name: this.state.name,
-            email: this.state.email,
-            phone: this.state.phone,
-            location: this.state.location
-        }
-        const url = `http://localhost:3000/`
-        fetch(url, {
-          method: 'PUT',
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(data => {
+    // handleSubmit(data) {
+    //     data.preventDefault();
+    //     const request = this.state.req;
+    //     const client = {
+    //         name: this.state.name,
+    //         email: this.state.email,
+    //         phone: this.state.phone,
+    //         location: this.state.location
+    //     }
+    //     const url = `http://localhost:3000/`
+    //     fetch(url, {
+    //       method: 'PUT',
+    //       headers: {
+    //         "Content-Type": "application/json"
+    //       },
+    //       body: JSON.stringify(data)
+    //     })
+    //     .then(response => response.json())
+    //     .then(data => {
     
-       const update =this.state.req.map(el => {
-        return el.id === data.id ? data : el
-          })
-          console.log('current state: ', this.state.req);
-          console.log('new state: ', update)
+    //    const update =this.state.req.map(el => {
+    //     return el.id === data.id ? data : el
+    //       })
+    //       console.log('current state: ', this.state.req);
+    //       console.log('new state: ', update)
     
-          this.setState({
-          req: data
-        })
-        .catch(error => {
-          console.log(error);
-        })
-    })
-    }
+    //       this.setState({
+    //       req: data
+    //     })
+    //     .catch(error => {
+    //       console.log(error);
+    //     })
+    // })
+    // }
 
 
-    deleteFunction(id){
+    deletedd(id){
+        // const url = `http://localhost:3000/cd/reqProduct/${id}`;
+
         const url = `http://localhost:3000/cd/requests/${id}`;
         fetch(url, {
             method: 'DELETE'
@@ -80,6 +82,35 @@ class RenderTrack extends Component {
           .then(response => response.json())
           .then(data => {
               console.log(data);
+              const updateShows = this.state.req.filter( el => el.id !== id);
+
+              this.props.allReq(updateShows);
+            //   this.setState({
+            //     // activeShow: null,
+            //     req: updateShows
+            //   })
+            //const delete 
+            // this.setState({
+            //     req: data
+
+            // })
+          })
+          .catch(error => {
+            console.log(error);
+          })
+    }
+
+    deleteFunction(id){
+        
+        const url1 = `http://localhost:3000/cd/reqProduct/${id}`;
+        // const url1 = `http://localhost:3000/cd/requests/${id}`;
+        fetch(url1, {
+            method: 'DELETE'
+          })
+          .then(response => response.json())
+          .then(data => {
+              console.log(data);
+              this.deletedd(id);
             //const delete 
             // this.setState({
             //     req: data

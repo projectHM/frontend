@@ -7,7 +7,6 @@ class Track extends Component {
     constructor() {
         super();
         this.state = {
-
          req:[],
          clientInfo: '',
          name: '',
@@ -18,28 +17,28 @@ class Track extends Component {
         }
        }
     
-       rendeRenderTrack(){
-        console.log('render track page');
-        if (this.state.activePage === 'TrackInfo'){
-            return (
-                <div>
-              <TrackInfo clientInfo={this.state.clientInfo}/>
-                </div>
-            )
-        } else {
-            return (
-                <div className="trackEmail">
+    //    rendeRenderTrack(){
+    //     console.log('render track page');
+    //     if (this.state.activePage === 'TrackInfo'){
+    //         return (
+    //             <div>
+    //           <TrackInfo clientInfo={this.state.clientInfo}/>
+    //             </div>
+    //         )
+    //     } else {
+    //         return (
+    //             <div className="trackEmail">
                     
-                   <form onSubmit={this.handleSubmit.bind(this)}>
+    //                <form onSubmit={this.handleSubmit.bind(this)}>
                 
-                   <label>Email: </label><input type="email" name="email" onChange={this.handleChange.bind(this)}/><br/>
-                   <button> Supmit </button>
+    //                <label>Email: </label><input type="email" name="email" onChange={this.handleChange.bind(this)}/><br/>
+    //                <button> Supmit </button>
                   
-                   </form>
-                </div>
-              )
-        }
-    }
+    //                </form>
+    //             </div>
+    //           )
+    //     }
+    // }
 
     // handelSubmit(event){
     //     event.preventDefault();
@@ -106,8 +105,11 @@ class Track extends Component {
                 // this.props.setActivePage('trackInfo');
                 this.setState({
                     clientInfo: data
+                }, () => {
+                    console.log(this.state.clientInfo.clinets[0]);
+                    // this.props.setClientInfo(this.state.clientInfo);
+                    this.setTrackActivePage('TrackInfo');
                 })
-                this.setTrackActivePage('TrackInfo');
             })
             .catch(error => console.error('Error:', error));
         }
