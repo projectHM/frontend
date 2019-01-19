@@ -19,10 +19,12 @@ class CostCalcuate extends Component {
     setReq(req){
         console.log(req.cpu);
         const cpuInfo = req.cpu;
+        // console.log('cpuInfocpuInfo', cpuInfo);
         const ramInfo = req.ram;
         const diskInfo = req.disk;
         const routerInfo = req.router;
         const switchInfo = req.switch;
+        const total = req.output;
         
         console.log(ramInfo,', ', cpuInfo, ', ', diskInfo, ', ',routerInfo, ', ',switchInfo);
 
@@ -33,8 +35,8 @@ class CostCalcuate extends Component {
             router: routerInfo,
             switch: switchInfo
         }, () => {
-            console.log('after make req',this.state);
-            this.props.setReqInfo(this.state);
+            console.log('after make req', this.state);
+            this.props.setReqInfo(this.state, total);
             this.props.setActivePage('makeReq');
         })
 

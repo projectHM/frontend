@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import Track from './components/Track';
 import TrackInfo from './components/TrackInfo';
 import { Button } from 'react-bootstrap';
+import YouTube from "react-youtube";
+// import TrackInfo from './components/TrackInfo';
 import { Player } from 'video-react';
 
 import './App.css';
 import Main from './components/Main';
 import CostCalcuate from './components/CostCalculate';
 import MakeRequest from './components/MakeRequest';
-import TrackInfo from './components/TrackInfo';
 import ReqDone from './components/ReqDone';
 
 
@@ -17,7 +18,8 @@ class App extends Component {
     super();
     this.state = {
     activePage: 'app',
-    reqInfo: ''
+    reqInfo: '',
+    total: '', videos: [], loading: true
     }
   }
 
@@ -30,9 +32,10 @@ class App extends Component {
     )
 }
 
-setReqInfo(reqInfo){
+setReqInfo(reqInfo, total){
   this.setState({
-    reqInfo: reqInfo
+    reqInfo: reqInfo,
+    total: total
   })
 }
 
@@ -67,7 +70,7 @@ setReqInfo(reqInfo){
     } else if (this.state.activePage === 'makeReq') {
         return (
           <div>
-            <MakeRequest setActivePage={this.setActivePage.bind(this)} reqInfo={this.state.reqInfo}/>
+            <MakeRequest setActivePage={this.setActivePage.bind(this)} reqInfo={this.state.reqInfo} total={this.state.total}/>
           </div>
         )
     } else if (this.state.activePage === 'track') {
@@ -90,8 +93,35 @@ setReqInfo(reqInfo){
       )
   }
    }
+
+   componentDidMount() {
+    var that = this;
+    var API_key = "AIzaSyAaerLQ4J0s-XFVud9oLZLOwf8zRrPg_R8";
+    var channelID = "UCs3o4RhBiP2wcwqkZR2QVLw";
+    var maxResults = 10;
+    var url ='https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=C-YfsWfZr7M&maxResults=1&key=AIzaSyDC13vOF-HRmV4qmexZAoc1b6_RU2B-I5s';
+
+    fetch(url)
+      .then(function(response) {
+        if (response.status >= 400) {
+          throw new Error("Bad response from server");
+        }
+        return response.json();
+      })
+      .then(function(data) {
+        that.setState({ videos: data.items, loading: false });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
   
    render() {
+    const { loading, videos } = this.state;
+
+    if (loading) {
+      return null;
+    }
     return (
       <div className="app">
         <div>
@@ -117,6 +147,19 @@ setReqInfo(reqInfo){
               {/* {this.renderCostCalcuate()} */}
               {/* <CostCalcuate/> */}
         </div>
+ 
+         <YouTube
+           videoId={videos[0].id}
+           opts={{
+             height: "390",
+             width: "640",
+             playerVars: {
+               autoplay: 1
+             }
+           }}
+           onReady={this._onReady}
+         />
+
       </div>
     );
   }
