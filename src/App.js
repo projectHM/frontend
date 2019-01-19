@@ -139,18 +139,18 @@ setReqInfo(reqInfo, total){
               {/* {this.renderCostCalcuate()} */}
               {/* <CostCalcuate/> */}
         </div>
-
-        <YouTube
-          videoId={videos[0].id}
-          opts={{
-            height: "390",
-            width: "640",
-            playerVars: {
-              autoplay: 1
-            }
-          }}
-          onReady={this._onReady}
-        />
+ 
+         <YouTube
+           videoId={videos[0].id}
+           opts={{
+             height: "390",
+             width: "640",
+             playerVars: {
+               autoplay: 1
+             }
+           }}
+           onReady={this._onReady}
+         />
 
       </div>
     );

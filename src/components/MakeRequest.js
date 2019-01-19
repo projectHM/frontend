@@ -14,7 +14,8 @@ class MakeRequest extends Component {
             total: props.total,
             reqId: '',
             clientID: '',
-            date: ''
+            date: '',
+            clientEmail: ''
         }
     }
 
@@ -48,7 +49,10 @@ class MakeRequest extends Component {
             .then(data => {
                 console.log(data);
                 this.setState({
-                    clientID: data.clinets.id
+                    clientID: data.clinets.id,
+                    clientEmail: data.clients.email
+                }, () => {
+                    console.log('clientEmail ', this.state.clientEmail)
                 })
                 this.createReq();
             })
@@ -59,6 +63,7 @@ class MakeRequest extends Component {
         // const request = this.state.req;
         const requestInfo = {
             client_id: this.state.clientID,
+            client_email: this.state.clientEmail,
             total: this.state.total,
             location: '',
             date: this.state.date

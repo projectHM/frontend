@@ -13,9 +13,11 @@ class TrackInfo extends Component{
         id: props.clientInfo ? props.clientInfo.clinets.id: ''   
     }
     }
+
     componentDidMount(){
         console.log('fetching data');
-        fetch(`http://localhost:3000/cd/requests?client_id=${this.state.id}`)
+        console.log(this.state.email);
+        fetch(`http://localhost:3000/cd/requests?client_email=${this.state.email}`)
         .then( response => response.json())
         .then( data => {
           console.log(data);
