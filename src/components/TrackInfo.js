@@ -6,11 +6,11 @@ class TrackInfo extends Component{
     super(props);
     this.state = {
         req:[],
-        name: props.clientInfo ? props.clientInfo.clinets.name: '',
-        email: props.clientInfo ? props.clientInfo.clinets.email: '',
-        phone: props.clientInfo ? props.clientInfo.clinets.phone: '',
-        location: props.clientInfo ? props.clientInfo.clinets.location: '',
-        id: props.clientInfo ? props.clientInfo.clinets.id: ''   
+        name: props.clientInfo.clinets ? props.clientInfo.clinets[0].name: '',
+        email: props.clientInfo.clinets ? props.clientInfo.clinets[0].email: '',
+        phone: props.clientInfo.clinets ? props.clientInfo.clinets[0].phone: '',
+        location: props.clientInfo.clinets ? props.clientInfo.clinets[0].location: '',
+        id: props.clientInfo.clinets ? props.clientInfo.clinets[0].id: ''   
     }
     }
 
@@ -22,13 +22,12 @@ class TrackInfo extends Component{
         .then( data => {
           console.log(data);
           this.setState({
-          req: data.request
+            req: data.request
             })
         })
           .catch( error => {
             console.log(error)
-          })
-          
+          })   
       }
 
     update(id, userData) {
@@ -43,6 +42,16 @@ class TrackInfo extends Component{
         .then(response => response.json())
         .then(data => {
           console.log(data);
+
+          // const updateShows =this.state.req.map(el => {
+          //   return el.id === data.id ? data : el
+          // })
+          // this.setState({
+          //   shows: updateShows,
+          //   activeShow: show,
+          //   modal: false
+          // })
+
       //  const update =this.state.req.map(el => {
       //   return el.id === data.id ? data : el
       // //     })
@@ -60,22 +69,22 @@ class TrackInfo extends Component{
   }
 
 
-    deleteRequest(id) {
-        const url = `http://localhost:3000/`;
-        fetch(url, {
-            method: 'DELETE'
-          })
-          .then(response => response.json())
-          .then(data => {
-            //const delete 
-            this.setState({
-                req: data
-            })
-          })
-          .catch(error => {
-            console.log(error);
-          })
-    } 
+    // deleteRequest(id) {
+    //     const url = `http://localhost:3000/`;
+    //     fetch(url, {
+    //         method: 'DELETE'
+    //       })
+    //       .then(response => response.json())
+    //       .then(data => {
+    //         //const delete 
+    //         this.setState({
+    //             req: data
+    //         })
+    //       })
+    //       .catch(error => {
+    //         console.log(error);
+    //       })
+    // } 
      
      renderRequest() {
         // return this.state.req.map((req,index) => {
@@ -108,6 +117,12 @@ class TrackInfo extends Component{
         this.update(this.state.id, clientInfo);
      }
 
+     setAllreq(allReq){
+        this.setState({
+          req: allReq
+        })
+     }
+
      renderRequest(allRequest) {
        console.log(allRequest);
         return allRequest.map((req) => {
@@ -115,6 +130,8 @@ class TrackInfo extends Component{
             <RenderTrack 
               key={req.id}
               req={req}
+              allReq={this.setAllreq.bind(this)}
+              allReqArr={this.state.req}
             />
           )
         })

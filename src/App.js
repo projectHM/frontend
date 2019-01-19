@@ -19,7 +19,10 @@ class App extends Component {
     this.state = {
     activePage: 'app',
     reqInfo: '',
-    total: '', videos: [], loading: true
+    // clientInfo: '',
+    total: '',
+    videos: [],
+    loading: true
     }
   }
 
@@ -32,12 +35,18 @@ class App extends Component {
     )
 }
 
-setReqInfo(reqInfo, total){
-  this.setState({
-    reqInfo: reqInfo,
-    total: total
-  })
-}
+  setReqInfo(reqInfo, total){
+    this.setState({
+      reqInfo: reqInfo,
+      total: total
+    })
+  }
+
+  // setClientInfo(clientInfo){
+  //   this.setState({
+  //     clientInfo: clientInfo
+  //   })
+  // }
 
   setActivePage(activePage){
     this.setState({
@@ -82,7 +91,7 @@ setReqInfo(reqInfo, total){
     } else if (this.state.activePage === 'trackInfo') {
       return (
         <div>
-          <TrackInfo setActivePage={this.setActivePage.bind(this)}/>
+          <TrackInfo setActivePage={this.setActivePage.bind(this)} clientInfo={this.state.clientInfo}/>
         </div>
       )
     } else if (this.state.activePage === 'ReqDone') {

@@ -50,9 +50,9 @@ class MakeRequest extends Component {
                 console.log(data);
                 this.setState({
                     clientID: data.clinets.id,
-                    clientEmail: data.clients.email
+                    clientEmail: data.clinets.email
                 }, () => {
-                    console.log('clientEmail ', this.state.clientEmail)
+                    // console.log('clientEmail ', this.state.clientEmail)
                 })
                 this.createReq();
             })
