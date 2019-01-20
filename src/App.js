@@ -104,46 +104,50 @@ class App extends Component {
    }
 
    componentDidMount() {
-    var that = this;
-    var API_key = "AIzaSyAaerLQ4J0s-XFVud9oLZLOwf8zRrPg_R8";
-    var channelID = "UCs3o4RhBiP2wcwqkZR2QVLw";
-    var maxResults = 10;
-    var url ='https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=C-YfsWfZr7M&maxResults=1&key=AIzaSyDC13vOF-HRmV4qmexZAoc1b6_RU2B-I5s';
+    // var that = this;
+    // var API_key = "AIzaSyAaerLQ4J0s-XFVud9oLZLOwf8zRrPg_R8";
+    // var channelID = "UCs3o4RhBiP2wcwqkZR2QVLw";
+    // var maxResults = 10;
+    // var url ='https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=C-YfsWfZr7M&maxResults=1&key=AIzaSyDC13vOF-HRmV4qmexZAoc1b6_RU2B-I5s';
 
-    fetch(url)
-      .then(function(response) {
-        if (response.status >= 400) {
-          throw new Error("Bad response from server");
-        }
-        return response.json();
-      })
-      .then(function(data) {
-        that.setState({ videos: data.items, loading: false });
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    // fetch(url)
+    //   .then(function(response) {
+    //     if (response.status >= 400) {
+    //       throw new Error("Bad response from server");
+    //     }
+    //     return response.json();
+    //   })
+    //   .then(function(data) {
+    //     that.setState({ videos: data.items, loading: false });
+    //   })
+    //   .catch(error => {
+    //     console.error(error);
+    //   });
   }
   
    render() {
-    const { loading, videos } = this.state;
+    // const { loading, videos } = this.state;
 
-    if (loading) {
-      return null;
-    }
+    // if (loading) {
+    //   return null;
+    // }
     return (
       <div className="app">
         <div>
           <header className="header">
-            C&D
+          <div>
+            <img src="https://d.top4top.net/p_11127dms91.png" alt="" onClick={() => this.setActivePage('app')}/>
+            <span>C&D</span>
+          </div>
          <div>  
-<div class="btn-group" role="group" aria-label="">
-<Button bsStyle="primary" onClick={() => this.setActivePage('track')}>Track</Button>
-</div>
-<div class="btn-group" role="group" aria-label="">
-<Button  bsStyle="primary" onClick={() => this.setActivePage('app')}>Home</Button>
-</div>
-</div> 
+          <div className="btn-group" role="group" aria-label="">
+          <Button bsStyle="primary" onClick={() => this.setActivePage('track')}>Track</Button>
+          <Button bsStyle="primary" onClick={()=> this.setActivePage('costCalculate')}>Price Comparison</Button>
+          </div>
+          {/* <div className="btn-group" role="group" aria-label="">
+          <Button  bsStyle="primary" onClick={() => this.setActivePage('app')}>Home</Button>
+          </div> */}
+          </div> 
            
           {/* {this.renderTrack()} */}
           </header>
@@ -155,21 +159,20 @@ class App extends Component {
          
               {/* {this.renderCostCalcuate()} */}
               {/* <CostCalcuate/> */}
+              {/* <YouTube
+                videoId={videos[0].id}
+                opts={{
+                  height: "390",
+                  width: "640",
+                  playerVars: {
+                    autoplay: 1
+                  }
+                }}
+                onReady={this._onReady}
+              /> */}
         </div>
  
-         <YouTube
-           videoId={videos[0].id}
-           opts={{
-             height: "390",
-             width: "640",
-             playerVars: {
-               autoplay: 1
-             }
-           }}
-           onReady={this._onReady}
-         />
 
-      </div>
     );
   }
 }

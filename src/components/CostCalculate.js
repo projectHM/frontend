@@ -59,7 +59,7 @@ class CostCalcuate extends Component {
     render() {
         return (
             <div>
-                <p> CostCalcuate</p>
+                {/* <p> CostCalcuate</p> */}
                 <div className="box">
                     <div>
                         <DataCenter setReq={this.setReq.bind(this)} setActivePage={this.props.setActivePage.bind(this)} />

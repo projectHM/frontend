@@ -68,6 +68,8 @@ class MakeRequest extends Component {
             location: '',
             date: this.state.date
         }
+
+        // console.log(requestInfo);
         // const url = 'http://localhost:3000/cd/requests';
         fetch('http://localhost:3000/cd/requests', {
             method: 'POST',
@@ -78,7 +80,7 @@ class MakeRequest extends Component {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data.request.id);
+                console.log(data);
                 this.setState({
                     reqId: data.request.id
                 }, () => {
@@ -121,7 +123,7 @@ class MakeRequest extends Component {
     render(){
         {console.log(this.state.req)}
         return(
-            <div>
+            <div className="makeRequest">
                 <h1>Make request</h1>
                 <form onSubmit={this.handelSubmit.bind(this)}>
                     <label>Name: </label><input type="text" name="name" onChange={this.handelChange.bind(this)}/><br/>
@@ -143,6 +145,7 @@ class MakeRequest extends Component {
                     });
                     }}
                     /> */}
+                    <br/>
                     <button>Submit</button>
                 </form>
             </div>

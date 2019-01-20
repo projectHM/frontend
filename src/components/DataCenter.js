@@ -99,7 +99,7 @@ class DataCenter extends Component {
 
             const ptice = (getCPUPrice + getRAMPrice + getDiskPrice) + (getswitchPrice * this.state.switch) + (getrouterPrice * this.state.router);
             this.setState({
-                output: ptice
+                output: ptice.toFixed(2)
             })
 
         })
@@ -164,7 +164,7 @@ renderProducts(){
 }
     renderCost(){
         return (
-            <div>
+            <div className="cost">
                 {/* <p>{this.state.cpu}</p>
                 <p>{this.state.ram}</p>
                 <p>{this.state.disk}</p>
@@ -188,34 +188,34 @@ renderProducts(){
         return(
             <div className="dataCenter">
                 <h1>Data Center</h1>
-                <div>
+                <div class="dataCenterForm">
                 <form onSubmit={this.handelSubmit.bind(this)}>
-                        <label>CPU</label>
+                        <label>CPU: </label>
                         {/* <input type="text" name="cpu" onChange={this.handelChange.bind(this)}/> */}
                         <select name="cpu" onChange={this.handelChange.bind(this)}>
                             {this.renderList(this.state.allCPU)}
                         </select>
                         <br/>
-                        <label>RAM</label>
+                        <label>RAM: </label>
                         {/* <input type="text" name="ram" onChange={this.handelChange.bind(this)}/> */}
                         <select name="ram" onChange={this.handelChange.bind(this)}>
                             {this.renderList(this.state.allRAM)}
                         </select>
                         <br/>
-                        <label>Disk</label>
+                        <label>Disk: </label>
                         {/* <input type="text" name="disk" onChange={this.handelChange.bind(this)}/> */}
                         <select name="disk" onChange={this.handelChange.bind(this)}>
                             {this.renderList(this.state.alldisk)}
                         </select>
                         <br/>
-                        <label>Router</label><input type="number" name="router" onChange={this.handelChange.bind(this)} required/><br/>
-                        <label>Switch</label><input type="number" name="switch" onChange={this.handelChange.bind(this)} required/><br/>
+                        <label>Router: </label><input type="number" name="router" onChange={this.handelChange.bind(this)} required/><br/>
+                        <label>Switch: </label><input type="number" name="switch" onChange={this.handelChange.bind(this)} required/><br/>
                         <button bsStyle="primary">Make Request</button>
                     </form>
-                    <div>
-                        {this.renderCost()}
-                    </div>
+                    {/* <div>
+                    </div> */}
                 </div>
+                        {this.renderCost()}
             </div>
         )
     }

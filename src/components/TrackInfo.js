@@ -141,13 +141,13 @@ class TrackInfo extends Component{
         console.log('render track');
         // console.log(this.props.);
         return (
-          <div className="trackEmail"> 
-              <h1>Track Info page</h1>
+          <div className="trackEmailInfo"> 
+              <h1>Clients Information</h1>
               <form onSubmit={this.handelSubmit.bind(this)}>
                 <label>Name: </label><input type="text" name="name" onChange={this.handelChange.bind(this)} value={this.state.name}/><br/>
                 <label>Email: </label><input type="email" name="email" onChange={this.handelChange.bind(this)} value={this.state.email}/><br/>
                 <label>Phone: </label><input type="number" name="phone" onChange={this.handelChange.bind(this)} value={this.state.phone}/><br/>
-                <label>Location: </label><input type="text" name="location" onChange={this.handelChange.bind(this)} value={this.state.location}/><br/>
+                {/* <label>Location: </label><input type="text" name="location" onChange={this.handelChange.bind(this)} value={this.state.location}/><br/> */}
                 <button>Edit</button>
             </form>
             <div>
