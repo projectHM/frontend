@@ -49,13 +49,11 @@ class Track extends Component {
         } else {
             return (
                 <div className="trackEmail">
-
-
                     <form onSubmit={this.handleSubmit.bind(this)}>
 
                         <label>Email: </label><input type="email" name="email" onChange={this.handleChange.bind(this)} /><br />
                        
-                        <button> Submit </button>
+                        <button>Submit</button>
                         
                         {this.state.clientInfo === 'invalid' ? <p>invalid user, try again.</p> : ''}
 

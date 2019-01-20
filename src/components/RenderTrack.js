@@ -125,7 +125,7 @@ class RenderTrack extends Component {
     render(){
         return(
     
-            <div>
+            <div className="renderTrack">
             <h1>Render Track page</h1>
             {/* <form onSubmit={this.handleSubmit.bind(this)}>
                 <label>Name: </label><input type="text" name="name" onChange={this.handelChange.bind(this)}/><br/>

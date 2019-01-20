@@ -32,15 +32,16 @@ class Cloud extends Component {
         }, () => {
             console.log(this.state);
             const total = (this.state.gb * this.state.price) * this.state.month ;
+            // num.toFixed(1)
             this.setState({
-                output: total
+                output: total.toFixed(2)
             })
         })
     }
 
     rnederCost(){
         return (
-            <div>
+            <div className="cost">
                 <p>{this.state.output}</p>
                 {/* <p>{this.state.month}</p>
                 <p>{this.state.years}</p> */}
@@ -52,11 +53,13 @@ class Cloud extends Component {
         return(
             <div className="cloud">
                 <h1>Cloud</h1>
+                <div className="form">
                 <form>
-                    <label>GB: </label><input type="number" name="gb" onChange={this.handelChange.bind(this)} required/><br/>
-                    <label>Month: </label><input type="number" name="month" onChange={this.handelChange.bind(this)} required/><br/>
+                    <label>GB: </label><br/><input type="number" name="gb" onChange={this.handelChange.bind(this)} required/><br/>
+                    <label>Month: </label><br/><input type="number" name="month" onChange={this.handelChange.bind(this)} required/><br/>
                     {/* <label>Years: </label><input type="number" name="years" onChange={this.handelChange.bind(this)}/><br/> */}
                 </form>
+                </div>
                 {this.rnederCost()}
             </div>
         )

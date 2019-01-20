@@ -1,13 +1,36 @@
-.firstPage{
-    margin: 0;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    left: 45%;  
+body{
+    overflow-x: hidden;
+    margin: 0 auto;
 }
+
+.firstPage {
+    margin: 20px auto;
+    /* position: absolute; */
+    /* width: 100%;
+    height: 100%; */
+    text-align: center;
+    /* top: 20%;
+    left: 25%; */
+    /* left: 45%;   */
+}
+
+
+.firstPage Button {
+    /* position: relative; */
+    /* top: 100%; */
+    /* top: 100%; */
+    /* left: 50%; */
+}
+
+.YouTube {
+    /* position: relative; */
+    /* left: 290px;
+    top: 20px; */
+}
+
 .header{
     background-color: #AEDCF9;
-    height: 120px;
+    height: 100px;
 }
 
 .track{
@@ -16,70 +39,214 @@
     left: 90%;
     top:30px;
 }
-.App{
-    display: flex;
-    justify-content: space-between;
-    border: 2px solid #646464;
-    background-color: #646464;
+
+.app {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* border: 2px solid #646464; */
+    /* background-color: #646464; */
     width: 100%;
     height: 100%;
+}
 
+.header {
+    display: flex; 
+}
+
+.header div img {
+    width: 60%;
+    margin: 5px;
+    /* height: 50px; */
+}
+
+/* .header div h1 {
+    margin-left: 30px;
+} */
+
+.header div span {
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.header div Button {
+    margin-top: 30px; 
+    left: 700px;
+    width: 150px;
+    height: 40px;
+    font-size: 15px;
+    margin-left:10px;
+    padding: 10px; 
 }
 
 .dataCenter{
-    margin: 9% auto;
-    background: rgba(242, 242, 242, 0.65);
+    margin: 10px auto;
+    background: rgb(235, 235, 235);
+    border-radius: 20px;
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
     text-align: center;
     max-width: 97%;
     height: 93%;
-    width: 90%;
+    width: 400px;
     padding: 7% 30px;
-    left: 50px;
+    /* left: 50px; */
 }
 
 .dataCenter form {
     text-align: center;
-    padding-left: 15px;
+    /* margin: 20px; */
+    padding: 10px;
+    /* padding-left: 15px; */
+    /* width: 200px; */
+    /* font-size: 20px; */
 }
-.dataCenter button{
 
-display: block;
-margin: 20px;
-
+.dataCenterForm {
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    /* padding: 10px; */
 }
-.cloud{
-    margin: 9% auto;
-    background: rgba(242, 242, 242, 0.65);
-    display: flex;
+
+.dataCenterForm form {
+    font-size: 12px;
+}
+
+.cloud h1 {
+    padding: 20px;
+}
+
+.reqDone {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.reqDone button  {
+    /* display: block; */
+    /* margin: 10px 20px; */
+    width: 150px;
+    height: 35px;
+    border-radius: 20px;
+}
+
+.form {
+    width: 200px; 
+    text-align: center;
+    margin: 0 auto;
+}
+
+.cloud form {
+    /* width: 200px; */
+    font-size: 12px;
+}
+
+.dataCenter form button{
+    display: block;
+    margin: 10px 20px;
+    width: 150px;
+    height: 35px;
+    border-radius: 20px;
+    /* text-align: center; */
+    /* margin: 5px 30px; */
+}
+
+.dataCenterForm select {
+    width: 150px;
+}
+
+.dataCenterForm input {
+    width: 140px;
+}
+
+.cloud {
+    margin: 10px auto;
+    background: rgb(235, 235, 235);
+    border-radius: 20px;
+    /* display: flex; */
     flex-flow: column;
     justify-content: flex-start;
     text-align: center;
-    max-width: 97%;
+    /* max-width: 97%; */
     height: 90%;
-    width: 90%;
+    width: 400px;
     padding: 7% 30px;
 }
 
 .trackEmail{
-    margin: 9% auto;
+    /* margin: 9% auto; */
+    margin: 10px auto;
     background:  rgba(242, 242, 242, 0.65);
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-start;
+    /* display: flex; */
+    /* flex-flow: column; */
+    /* justify-content: flex-start; */
     text-align: center;
-    max-width: 97%;
+    /* max-width: 97%; */
     height: 90%;
     width: 90%;
     padding: 7% 30px;
-    left: 50px;
+    /* left: 50px; */
+}
+
+.trackEmail form{
+    display: block;
+  /* margin-left: auto;
+  margin-right: auto; */
+  margin: 10px auto;
+  width: 50%;
+  font-size: 20px; 
+}
+
+.trackEmail input{
+    /* display: block; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* margin: 10px auto;
+  width: 50%; */
+  font-size: 15px; 
+  margin: 10px;
 }
 
 .trackEmail button {
    background-color: rgba(155, 152, 152, 0.65 );
    color:white;
+   font-size: 15px;
+   margin: 10px;
+}
+
+.trackEmailInfo {
+    margin: 10px auto;
+    background:  rgba(242, 242, 242, 0.65);
+    /* display: flex; */
+    /* flex-flow: column; */
+    /* justify-content: flex-start; */
+    text-align: center;
+    /* max-width: 97%; */
+    height: 90%;
+    width: 90%;
+    padding: 7% 30px;
+}
+
+.trackEmailInfo form {
+    display: block;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin: 10px auto;
+    width: 50%;
+    font-size: 13px; 
+}
+
+.renderTrack {
+    margin: 10px auto;
+    width: 400px;
+    height: 150px;
+}
+
+.renderTrack form {
+    margin: 10px auto;
+    text-align: center;
+    /* width: 400px;
+    height: 150px; */
 }
 
 .box {
@@ -87,8 +254,9 @@ margin: 20px;
     justify-content: space-around;
     background: rgba(155, 152, 152, 0.65);
    background-color: rgba(242, 242, 242, 0.65);
-   
+   height: 400px;
 }
+
 .app button{
 position:absolute;
 background-color: #4A9AF5;
@@ -96,10 +264,70 @@ background-color: #4A9AF5;
 
 .firstPage button {
     width: 170px;
-   
+    top: 150px;
 }
 
 .app Button {
-    left: 75em;
-    width: 100px
+    
+    width: 90px;
+
+}
+
+.dataCenter .make {
+    position: relative;
+    width: 150px;
+
+}
+
+.YouTube {
+    position: relative;
+    /* left: 290px;
+    top: 20px; */
+ 
+}
+
+.cost {
+    font-size: 15px;
+    margin: 10px auto;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 10px;
+    width: 100px;
+    height: 50px;
+}
+
+.makeRequest {
+    width: 500px;
+    height: 400px;
+    background: rgb(235, 235, 235);
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.makeRequest form {
+    margin: 20px auto;
+    text-align: center;
+    font-size: 12px;
+    padding: 10px;
+}
+
+.makeRequest h1 {
+    text-align: center;
+}
+
+.makeRequest button {
+    display: block;
+    margin: 10px 160px;
+    width: 150px;
+    height: 35px;
+    border-radius: 20px;
+}
+
+.makeRequest input {
+    /* display: block; */
+    margin: 10px auto;
+    width: 150px;
+    height: 35px;
+    /* border-radius: 20px; */
 }
