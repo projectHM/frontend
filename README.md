@@ -11,8 +11,7 @@ result: after using this app, business owners now are aware of the difference, a
 ##A link to your Figma prototype
 https://www.figma.com/file/EyIrhpEILikQ6xJuoON4CaIg/Untitled?node-id=0%3A1
 
-##[Link to Surge](http://rural-quiver.surge.sh)
-
+# [Link to Surge](http://rural-quiver.surge.sh)
 
 # technologies used
 Node js
